@@ -10,8 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(urlPatterns = "/biblioteca")
+@WebServlet(urlPatterns = "/biblioteca",loadOnStartup = 1)
 public class BibliotecaController extends HttpServlet {
+	
+	@Override
+	public void init() throws ServletException {
+		
+		System.out.println("iniciando Servlet");
+		super.init();
+	}
+	
+	@Override
+	public void destroy() {
+		
+		System.out.println("Fim do Servlet");
+		super.destroy();
+	}
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
