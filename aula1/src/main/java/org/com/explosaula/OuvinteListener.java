@@ -1,4 +1,4 @@
-package br.com.ouvinteListener;
+package org.com.explosaula;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
