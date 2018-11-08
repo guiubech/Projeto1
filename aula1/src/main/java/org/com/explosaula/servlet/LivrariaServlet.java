@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.com.explosaula.baen.ApresentacaoBean;
 
-@WebServlet(urlPatterns = "/livraria")
+@WebServlet(urlPatterns = "/livraria",name="livraria")
 public class LivrariaServlet extends HttpServlet {
 
 	public String formattedDate;

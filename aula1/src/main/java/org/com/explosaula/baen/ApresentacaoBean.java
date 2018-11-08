@@ -19,11 +19,11 @@ public class ApresentacaoBean {
 		String dataFormatada = sdfData.format(calendar.getTime());
 
 		if (hora > 18 && hora <= 23) {
-			return "A biblioteca está fechada";
+			return "A livraria está fechada";
 		} else if (hora > 0 && hora < 7) {
-			return "A biblioteca está fechada";
+			return "A livraria está fechada";
 		} else {
-			return "A loja está aberta";
+			return "A livraria está aberta";
 		}
 
 	}
