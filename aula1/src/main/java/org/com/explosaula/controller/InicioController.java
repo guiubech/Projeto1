@@ -1,30 +1,23 @@
-package org.com.explosaula.servlet;
+package org.com.explosaula.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/ExemploServlet")
-public class ExemploServlet extends HttpServlet {
+@WebServlet(description = "Servlet que inicia a navegação da aplicação.", 
+name = "inicio",
+urlPatterns = { "/inicio" })
+public class InicioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
-    public ExemploServlet() {
-        super();
-    }
-
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/login.jsp").forward(request, response);
 	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }
