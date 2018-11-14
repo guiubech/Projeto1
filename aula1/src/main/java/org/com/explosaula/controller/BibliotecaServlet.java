@@ -2,6 +2,7 @@ package org.com.explosaula.controller;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,8 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.com.explosaula.bo.BibliotecaBO;
 import org.com.explosaula.bo.LivroBO;
-import org.com.explosaula.bo.impl.BibliotecaBOImpl;
-import org.com.explosaula.bo.impl.LivroBOImpl;
 import org.com.explosaula.model.Biblioteca;
 import org.com.explosaula.model.Livro;
 
@@ -21,8 +20,14 @@ import org.com.explosaula.model.Livro;
 public class BibliotecaServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private BibliotecaBO bibliotecaBO = new BibliotecaBOImpl();
-	private LivroBO livroBO = new LivroBOImpl();
+	//private BibliotecaBO bibliotecaBO = new BibliotecaBOImpl();
+	//private LivroBO livroBO = new LivroBOImpl();
+	
+	@Inject
+	private BibliotecaBO bibliotecaBO;
+	
+	@Inject
+	private LivroBO livroBO;
 	
 	/**
 	 * *
