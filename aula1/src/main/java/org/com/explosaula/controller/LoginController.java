@@ -3,6 +3,7 @@ package org.com.explosaula.controller;
 import java.io.IOException;
 import java.io.Serializable;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +19,11 @@ import org.com.explosaula.model.Usuario;
 @WebServlet(description = "Servlet que realiza a autenticação.", name = "login" , urlPatterns = "/login")
 public class LoginController extends HttpServlet implements Serializable {
 
+	
 	private static final long serialVersionUID = 1L;
 	
-	private Usuario usuario = new Usuario();
+	@Inject
+	private Usuario usuario;
 	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,8 +42,7 @@ public class LoginController extends HttpServlet implements Serializable {
 		usuario.setNome(request.getParameter("usuario"));
 		usuario.setSenha(request.getParameter("senha"));
 		
-		if (usuario != null 
-				&& StringUtils.isNotBlank(usuario.getNome()) 
+		if (StringUtils.isNotBlank(usuario.getNome()) 
 				&& StringUtils.isNotBlank(usuario.getSenha())) {
 			// Inserindo um atributo na sessão da aplicação
 			HttpSession session = request.getSession();
