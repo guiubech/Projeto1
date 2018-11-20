@@ -21,10 +21,16 @@
 			</tr>	
 		</c:forEach>
 	</table>
-	<form action="/aula1/biblioteca" method="post">
-		<p>Consulte um livro pelo isbn:</p>
-		<input type="text" id="isbn" name="isbn"/>
-		<input type="submit" value="Enviar">
-	</form>
+	<br>
+	
+	<div>
+    	<a href="inserirLivro">Inserir Livro</a>
+    </div>
+    <div>
+        <a href="consultarLivro">Consultar Livro</a>
+    </div>
+    <div>
+        <a href="removerLivro">Remover Livro</a>
+    </div>
 </body>
 </html>

@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,6 +29,12 @@ public class EntityManagerProducer implements Serializable {
 	@Produces
 	public EntityManager produces() {
 		return em;
+	}
+	
+	public void close(@Disposes EntityManager em) {
+		if (em.isOpen()) {
+			em.close();
+		}
 	}
 	
 	@PreDestroy

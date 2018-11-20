@@ -14,7 +14,7 @@ public class LivroDAOImpl implements LivroDAO {
 	
 	@Inject
     private EntityManager em;
-
+	
 	@Override
 	public Livro consultaLivro(String isbn) {
 		String sql = " SELECT * FROM livro where isbn = :isbn ";
@@ -31,7 +31,32 @@ public class LivroDAOImpl implements LivroDAO {
 			livro.setIdioma((String) obj[3]);
 		}
 		return livro;
+	}
+
+	@Override
+	public void inserirLivro(Livro livro) {
+		em.getTransaction().begin();
 		
+		String sql = " INSERT INTO livro (titulo, isbn, idioma) VALUES (:titulo, :isbn, :idioma) ";
+		Query query = em.createNativeQuery(sql);
+		query.setParameter("titulo", livro.getTitulo());
+		query.setParameter("isbn", livro.getIsbn());
+		query.setParameter("idioma", livro.getIdioma());
+		query.executeUpdate();
+		
+		em.getTransaction().commit();
+	}
+
+	@Override
+	public void removerLivro(Livro livro) {
+		em.getTransaction().begin();
+		
+		String sql = " DELETE FROM livro WHERE isbn = :isbn ";
+		Query query = em.createNativeQuery(sql);
+		query.setParameter("isbn", livro.getIsbn());
+		query.executeUpdate();
+		
+		em.getTransaction().commit();
 	}
 
 }

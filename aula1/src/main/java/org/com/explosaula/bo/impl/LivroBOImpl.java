@@ -19,4 +19,14 @@ public class LivroBOImpl implements LivroBO {
 		return livroDAO.consultaLivro(isbn);
 	}
 
+	@Override
+	public void inserirLivro(Livro livro) {
+		livroDAO.inserirLivro(livro);
+	}
+
+	@Override
+	public void removerLivro(Livro livro) {
+		livroDAO.removerLivro(livro);
+	}
+
 }
