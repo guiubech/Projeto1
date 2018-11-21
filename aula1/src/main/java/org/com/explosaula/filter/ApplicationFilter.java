@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "applicationFilter", urlPatterns = { "/*.jsp" }, servletNames = { "livraria" })
+@WebFilter(filterName = "applicationFilter", urlPatterns = { "/*.jsp" }, servletNames = { "biblioteca" })
 public class ApplicationFilter implements Filter {
 
 	FilterConfig config;

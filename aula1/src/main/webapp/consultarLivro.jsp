@@ -7,7 +7,7 @@
 <title>Livro</title>
 </head>
 <body>
-	<form action="/Projeto1/consultarLivro" method="post">
+	<form action="/aula1/consultarLivro" method="post">
 		<p>Consulte um livro pelo isbn:</p>
 		<input type="text" id="isbn" name="isbn"/>
 		<input type="submit" value="Consultar">

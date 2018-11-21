@@ -27,22 +27,7 @@ public class ConsultarLivroController extends HttpServlet {
 		req.getRequestDispatcher("/consultarLivro.jsp").forward(req, resp);
 	}
 	
-	/**
-	 * *
-	 * 
-     * doPost, Método que é redirecionado as requisições do cliente via verbo POST.
-     * O método service da classe extendida HttpServlet recebe as requisições e 
-     * redireciona para o método correto de acordo com o verbo utilizado.   
-     *
-     * @param req   Objeto usado para enviar as requisições ao servlet
-     *                        
-     * @param resp  Objeto usado para retonar headers para o cliente
-     *
-     * @throws IOException   Exception lançada caso ocorra algum erro no input ou output
-     *
-     * @throws ServletException  Exception lançada caso ocorra algum erro genérico na servlet
-     * 
-     */
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String isbn = request.getParameter("isbn");
