@@ -8,17 +8,18 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import br.com.spring.dao.ProdutoDao;
 import br.com.spring.model.Produto;
 
 @Repository
 public class ProdutoDaoImpl implements ProdutoDao {
 	
-	@PersistenceContext
-	private EntityManager em;
+	//@PersistenceContext
+	//private EntityManager em;
 	
-	public List<Produto> retornaProdutos() {
-		TypedQuery<Produto> query = em.createQuery("from Produto", Produto.class);
-		return query.getResultList();
-	}
+	//public List<Produto> retornaProdutos() {
+	//	TypedQuery<Produto> query = em.createQuery("from Produto", Produto.class);
+	//	return query.getResultList();
+	//}
 
 }

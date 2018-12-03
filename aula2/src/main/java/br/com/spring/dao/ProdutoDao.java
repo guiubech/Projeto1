@@ -4,8 +4,10 @@ import java.util.List;
 
 import br.com.spring.model.Produto;
 
-public class ProdutoDao {
+
+
+public interface ProdutoDao {
 	
-	public List<Produto> retornaProdutos();
+	
 
 }
