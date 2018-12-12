@@ -38,4 +38,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return usuarioDao.retornaUsuarios();
 	}
 	
+	@Override
+	public Usuario consultarId(Long id) {
+		return usuarioDao.consultarId(id);
+	}
+	
+	@Override
+	public void editar(Usuario usuario) {
+		usuarioDao.atualizarUsuario(usuario);
+	}
+	
 }

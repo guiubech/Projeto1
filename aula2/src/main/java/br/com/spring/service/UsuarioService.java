@@ -10,4 +10,6 @@ public interface UsuarioService {
 	void registrarUltimoLogin(Usuario user);
 	void salvarUsuario(Usuario usuario);
 	List<Usuario> retornaUsuarios();
+	Usuario consultarId (Long id);
+	void editar(Usuario usuario);
 }
