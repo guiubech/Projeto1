@@ -48,4 +48,16 @@ public class UsuarioServiceImpl implements UsuarioService {
 		usuarioDao.atualizarUsuario(usuario);
 	}
 	
+//	@Override
+//	public void excluir(Long id) {
+//		Usuario usuario = usuarioDao.consultarId(id);
+//		usuarioDao.excluir(usuario);
+//	}
+	
+	@Override
+	public void desativar(Usuario usuario) {
+		usuario.setIsAtivo(false);
+		usuarioDao.desativar(usuario);
+	}
+	
 }

@@ -11,5 +11,7 @@ public interface UsuarioDao {
 	void salvarUsuario(Usuario usuario);
 	List<Usuario> retornaUsuarios();
 	Usuario consultarId(Long id);
+	//void excluir(Usuario usuario);
+	void desativar(Usuario usuario);
 	
 }

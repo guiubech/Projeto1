@@ -43,6 +43,9 @@ public class Usuario implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private Endereco endereco;
+	
+	@Column(name = "isAtivo")
+	private Boolean isAtivo;
 
 	public Long getId() {
 		return id;
@@ -91,13 +94,21 @@ public class Usuario implements Serializable {
 	public void setUltimoLogin(Date ultimoLogin) {
 		this.ultimoLogin = ultimoLogin;
 	}
-	
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
-	
+
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public Boolean getIsAtivo() {
+		return isAtivo;
+	}
+
+	public void setIsAtivo(Boolean isAtivo) {
+		this.isAtivo = isAtivo;
 	}
 
 	@Override
@@ -107,6 +118,7 @@ public class Usuario implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((isAtivo == null) ? 0 : isAtivo.hashCode());
 		result = prime * result + ((nomeCompleto == null) ? 0 : nomeCompleto.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((perfil == null) ? 0 : perfil.hashCode());
@@ -129,14 +141,19 @@ public class Usuario implements Serializable {
 		} else if (!email.equals(other.email))
 			return false;
 		if (endereco == null) {
-			if(other.id != null)
+			if (other.endereco != null)
 				return false;
-		}else if (!endereco.equals(other.endereco))
+		} else if (!endereco.equals(other.endereco))
 			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (isAtivo == null) {
+			if (other.isAtivo != null)
+				return false;
+		} else if (!isAtivo.equals(other.isAtivo))
 			return false;
 		if (nomeCompleto == null) {
 			if (other.nomeCompleto != null)
@@ -157,4 +174,7 @@ public class Usuario implements Serializable {
 			return false;
 		return true;
 	}
+
+	
+	
 }

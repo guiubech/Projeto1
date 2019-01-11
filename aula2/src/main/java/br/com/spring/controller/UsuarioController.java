@@ -5,8 +5,10 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +22,8 @@ import br.com.spring.service.UsuarioService;
 public class UsuarioController {
 	
 	@Autowired
-	private UsuarioService usuarioService; 
+	private UsuarioService usuarioService;
+	
 	
 	@GetMapping("")
 	public ModelAndView carregaProdutos(ModelMap model) {
@@ -38,6 +41,33 @@ public class UsuarioController {
 		usuarioService.salvarUsuario(usuario);
 		attr.addFlashAttribute("message", "Usuario inserido com sucesso.");
 		return new ModelAndView("redirect:/usuario");
+	}
+	@GetMapping("editar/{id}")
+	public ModelAndView carregarEditar(@PathVariable("id") Long id, ModelMap model) {
+		model.addAttribute("usuario", usuarioService.consultarId(id));
+		return new ModelAndView("/usuario/editarSalvarUsuario", model);
+	}
+	
+	@PostMapping("editar")
+	public ModelAndView editar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, RedirectAttributes attr) {
+		if (result.hasErrors()) {
+			return new ModelAndView("/usuario/editarSalvarUsuario");
+		}
+		usuarioService.editar(usuario);
+		attr.addFlashAttribute("message", "Usuario alterado com sucesso.");
+		return new ModelAndView("redirect:/usuario");
+	}
+	
+//	@GetMapping("excluir/{id}")
+//	public String excluir (@PathVariable("id") Long id, ModelMap model) {
+//		usuarioService.excluir(id);
+//		return "redirect:/usuario";
+//	}
+	
+	@GetMapping("desativar/{usuario}")
+	public String desativar (@PathVariable("usuario") Usuario usuario, ModelMap model) {
+		usuarioService.desativar(usuario);
+		return "redirect:/usuario";
 	}
 
 }

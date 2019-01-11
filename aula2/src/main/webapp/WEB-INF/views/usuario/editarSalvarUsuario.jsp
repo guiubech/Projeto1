@@ -37,6 +37,7 @@
 					    <spring:url value="${usuario.id == null ? '/usuario/inserir' : '/usuario/editar'}" var="salvar"/>
         				<form:form modelAttribute="usuario" action="${salvar }" method="post">
 				        	<form:hidden path="id"/>
+				        	<form:hidden path="endereco.id"/>
 				        	<div class="form-group">
 				                <label for="nome">Email: </label>
 				                <form:input path="email" class="form-control"/>                
@@ -75,13 +76,7 @@
 				            <div class="form-group">
 				            	<label for="endereco.uf">Uf: </label>
 				                <form:input path="endereco.uf"  class="form-control"/>
-				            </div>          
-				            <div class="form-group">
-				                <form:select path="perfil" required="true">
-			                        <form:option value="ADMIN" label="ADMIN" />
-			                        <form:option value="USER" label="USER" />
-			                    </form:select>    
-				            </div>
+				            </div> 
 				            <div class="form-group">
 				                <button type="submit" class="btn btn-primary">Confirmar</button>
 				            </div>

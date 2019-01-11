@@ -47,4 +47,19 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	public Usuario consultarId(Long id) {
 		return em.find(Usuario.class, id);
 	}
+
+//	@Override
+//	@Transactional
+//	public void excluir(Usuario usuario) {
+//		usuario = em.find(Usuario.class, usuario.getId());
+//		em.remove(usuario);
+//		
+//	}
+	@Override
+	@Transactional
+	public void desativar(Usuario usuario) {
+		em.merge(usuario);
+	}
+	
+	
 }

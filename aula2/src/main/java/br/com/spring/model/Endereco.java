@@ -48,7 +48,7 @@ public class Endereco implements Serializable {
 		return bairro;
 	}
 	public void setBairro(String bairro) {
-		bairro = bairro;
+		this.bairro = bairro;
 	}
 	public String getCep() {
 		return cep;
