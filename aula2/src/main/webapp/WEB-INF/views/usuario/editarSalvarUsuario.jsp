@@ -50,6 +50,10 @@
 				                <label for="password">Senha: </label>  
 				                <form:input path="password" class="form-control"/>   
 				            </div>
+				             <div class="form-group">
+				                <label for="isAtivo">Ativo: </label>
+				                <form:input path="isAtivo"  class="form-control"/>              
+				            </div>
 				            <div class="form-group">
 				            	<label for="perfil">Perfil: </label><br>
 				                <form:select path="perfil" required="true">

@@ -42,6 +42,7 @@
 						                    <th>Último login</th>
 						                    <th>Nome</th>
 						                    <th>Perfil</th>
+						                    <th>Ativo</th>
 						                    <th>Ação</th>
 				                  		</tr>
 				                 	</thead>
@@ -51,6 +52,7 @@
 						                    <th>Último login</th>
 						                    <th>Nome</th>
 						                    <th>Perfil</th>
+						                    <th>Ativo</th>
 						                    <th>Ação</th>
 				                    	</tr>
 				                 	</tfoot>
@@ -61,6 +63,7 @@
 							                    <td><f:formatDate value="${usuario.ultimoLogin }"/></td>
 							                    <td>${usuario.nomeCompleto	 }</td>
 							                    <td>${usuario.perfil }</td>
+							                    <td>${usuario.isAtivo }</td>
 							                    <td>
 							                    	<spring:url value="/usuario/editar/${usuario.id}" var="editar"/>
 							                    	<a class="btn btn-info" href="${editar}" >Editar</a>
