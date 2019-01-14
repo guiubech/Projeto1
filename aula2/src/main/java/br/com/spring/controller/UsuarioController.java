@@ -25,9 +25,15 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 	
 	
-	@GetMapping("")
-	public ModelAndView carregaProdutos(ModelMap model) {
-		model.addAttribute("usuarios", usuarioService.retornaUsuarios());
+	@GetMapping("/usuariosAtivos")
+	public ModelAndView carregaUsuariosAtivos(ModelMap model) {
+		model.addAttribute("usuarios", usuarioService.retornaUsuariosAtivos());
+		return new ModelAndView("/usuario/usuario", model);
+	}
+	
+	@GetMapping("/usuariosInativos")
+	public ModelAndView carregaUsuariosInativos(ModelMap model) {
+		model.addAttribute("usuarios", usuarioService.retornaUsuariosInativos());
 		return new ModelAndView("/usuario/usuario", model);
 	}
 	

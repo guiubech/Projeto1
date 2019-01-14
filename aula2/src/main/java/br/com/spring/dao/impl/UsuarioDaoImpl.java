@@ -19,8 +19,14 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	private EntityManager em;
 	
 	@Override
-	public List<Usuario> retornaUsuarios() {
-		TypedQuery<Usuario> query = em.createQuery("FROM Usuario u", Usuario.class);
+	public List<Usuario> retornaUsuariosAtivos() {
+		TypedQuery<Usuario> query = em.createQuery("FROM Usuario u WHERE u.isAtivo = true", Usuario.class);
+		return query.getResultList();
+	}
+	
+	@Override
+	public List<Usuario> retornaUsuariosInativos() {
+		TypedQuery<Usuario> query = em.createQuery("FROM Usuario u WHERE u.isAtivo = false", Usuario.class);
 		return query.getResultList();
 	}
 	

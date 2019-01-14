@@ -9,9 +9,11 @@ public interface UsuarioService {
 	Usuario findUserByEmail(String userName);
 	void registrarUltimoLogin(Usuario user);
 	void salvarUsuario(Usuario usuario);
-	List<Usuario> retornaUsuarios();
+	List<Usuario> retornaUsuariosAtivos();
+	List<Usuario> retornaUsuariosInativos();
 	Usuario consultarId (Long id);
 	void editar(Usuario usuario);
 	//void excluir(Long id);
 	void desativar(Usuario usuario);
+	
 }

@@ -9,7 +9,8 @@ public interface UsuarioDao {
 	Usuario findByEmail(String email);
 	void atualizarUsuario(Usuario usuario);
 	void salvarUsuario(Usuario usuario);
-	List<Usuario> retornaUsuarios();
+	List<Usuario> retornaUsuariosAtivos();
+	List<Usuario> retornaUsuariosInativos();
 	Usuario consultarId(Long id);
 	//void excluir(Usuario usuario);
 	void desativar(Usuario usuario);

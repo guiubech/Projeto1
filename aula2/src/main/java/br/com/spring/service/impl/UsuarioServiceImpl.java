@@ -34,8 +34,13 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public List<Usuario> retornaUsuarios() {
-		return usuarioDao.retornaUsuarios();
+	public List<Usuario> retornaUsuariosAtivos() {
+		return usuarioDao.retornaUsuariosAtivos();
+	}
+	
+	@Override
+	public List<Usuario> retornaUsuariosInativos() {
+		return usuarioDao.retornaUsuariosInativos();
 	}
 	
 	@Override

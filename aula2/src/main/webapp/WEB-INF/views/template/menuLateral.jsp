@@ -25,8 +25,11 @@
 				<spring:url value="/usuario/cadastrar" var="cadastrarUsuario"/>
 				<a class="dropdown-item" href="${cadastrarUsuario }">Novo usuário</a> 
 				
-				<spring:url value="/usuario" var="listarUsuario"/>
-				<a class="dropdown-item" href="${listarUsuario }">Listar usuários</a> 
+				<spring:url value="/usuario/usuariosAtivos" var="listarUsuarioAtivos"/>
+				<a class="dropdown-item" href="${listarUsuarioAtivos }">Listar usuários</a> 
+				
+				<spring:url value="/usuario/usuariosInativos" var="listarUsuarioInativos"/>
+				<a class="dropdown-item" href="${listarUsuarioInativos }">Listar usuários inativos</a>
 				
 				<!-- <div class="dropdown-divider"></div>
 				<h6 class="dropdown-header">Other Pages:</h6>

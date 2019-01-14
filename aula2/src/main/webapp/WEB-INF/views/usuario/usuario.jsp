@@ -68,8 +68,8 @@
 							                    	<spring:url value="/usuario/editar/${usuario.id}" var="editar"/>
 							                    	<a class="btn btn-info" href="${editar}" >Editar</a>
 							                    	
-							                    	<spring:url value="/usuario/excluir/${usuario.id}" var="excluir"/>
-							                    	<a class="btn btn-info" href="${excluir}" >Excluir</a>
+							                    	<!--<spring:url value="/usuario/excluir/${usuario.id}" var="excluir"/>
+							                    	<a class="btn btn-info" href="${excluir}" >Excluir</a> -->
 							                    	
 							                    </td>
 							                    	
