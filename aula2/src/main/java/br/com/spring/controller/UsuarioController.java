@@ -46,7 +46,7 @@ public class UsuarioController {
 	public ModelAndView inserir(@Valid @ModelAttribute("usuario") Usuario usuario, RedirectAttributes attr) {
 		usuarioService.salvarUsuario(usuario);
 		attr.addFlashAttribute("message", "Usuario inserido com sucesso.");
-		return new ModelAndView("redirect:/usuario");
+		return new ModelAndView("redirect:/usuario/usuariosAtivos");
 	}
 	@GetMapping("editar/{id}")
 	public ModelAndView carregarEditar(@PathVariable("id") Long id, ModelMap model) {
@@ -61,7 +61,7 @@ public class UsuarioController {
 		}
 		usuarioService.editar(usuario);
 		attr.addFlashAttribute("message", "Usuario alterado com sucesso.");
-		return new ModelAndView("redirect:/usuario");
+		return new ModelAndView("redirect:/usuario/usuariosAtivos");
 	}
 	
 //	@GetMapping("excluir/{id}")

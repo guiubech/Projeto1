@@ -12,7 +12,7 @@
 			<span>Dashboard</span>
 		</a>
 	</li>
-	<security:authorize access="hasAnyAuthority('ADMIN')">
+	
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown"
 				role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -28,8 +28,10 @@
 				<spring:url value="/usuario/usuariosAtivos" var="listarUsuarioAtivos"/>
 				<a class="dropdown-item" href="${listarUsuarioAtivos }">Listar usuários</a> 
 				
-				<spring:url value="/usuario/usuariosInativos" var="listarUsuarioInativos"/>
-				<a class="dropdown-item" href="${listarUsuarioInativos }">Listar usuários inativos</a>
+				<security:authorize access="hasAnyAuthority('ADMIN')">
+					<spring:url value="/usuario/usuariosInativos" var="listarUsuarioInativos"/>
+					<a class="dropdown-item" href="${listarUsuarioInativos }">Listar usuários inativos</a>
+				</security:authorize>
 				
 				<!-- <div class="dropdown-divider"></div>
 				<h6 class="dropdown-header">Other Pages:</h6>
@@ -37,7 +39,7 @@
 				<a class="dropdown-item" href="blank.html">Blank Page</a> -->
 			</div>
 		</li>
-	</security:authorize>
+	
 	<li class="nav-item">
 		<spring:url value="/produto" var="produto"></spring:url>
 		<a class="nav-link" href="${produto }">
