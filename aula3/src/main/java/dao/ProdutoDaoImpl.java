@@ -3,12 +3,6 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
-import org.springframework.stereotype.Repository;
-
 import model.Produto;
 
 
@@ -35,6 +29,12 @@ public class ProdutoDaoImpl implements ProdutoDao {
 		produto.setId(1L);
 		produto.setNome("Guilherme");
 		return produto;
+	}
+
+	@Override
+	public List<Produto> retornaProduto() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

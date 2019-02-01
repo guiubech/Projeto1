@@ -8,7 +8,11 @@ import model.Produto;
 
 public interface ProdutoDao {
 	
-	public List<Produto> retornaProdutos() ;
+	public List<Produto> retornaProduto() ;
 	public Produto consultarProduto(Long id);
 
+	
+	
+	
+	
 }
