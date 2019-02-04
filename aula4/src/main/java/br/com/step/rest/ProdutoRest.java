@@ -3,6 +3,7 @@ package br.com.step.rest;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.Query;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -59,8 +60,7 @@ public class ProdutoRest {
 	
 	//editar
 	@PUT
-    @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON + CHARSET_UTF8)
     public void merge(Produto produto) {
         produtoDAO.merge(produto);
     }
