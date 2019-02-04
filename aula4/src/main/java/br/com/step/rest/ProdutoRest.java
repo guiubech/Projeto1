@@ -4,9 +4,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import br.com.step.rest.dao.ProdutoDAO;
@@ -19,12 +24,45 @@ public class ProdutoRest {
 	@Inject
 	private ProdutoDAO produtoDAO;
 
+	
+	//retorna todos
 	@GET
-	@Path("/nome")
-	//@Consumes(MediaType.TEXT_PLAIN)
 	@Produces(MediaType.APPLICATION_JSON + CHARSET_UTF8)
 	public List <Produto> listaProduto() {
-		return produtoDAO.listaProduto();
+		return produtoDAO.findAll();
 	}
+	
+	//retorna por id
+	@GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    public Produto findById(@PathParam("id") Long id) {
+        return produtoDAO.findById(id);
+    }
+	
+	//adiciona
+	@POST
+    @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    @Produces(MediaType.TEXT_PLAIN)
+    public void persist(Produto produto) {
+        produtoDAO.persist(produto);
+    }
+	
+	//excluir
+	@Path("/{id}")
+	@DELETE
+	@Consumes(MediaType.TEXT_PLAIN)
+    public void remove(@PathParam("id") Long id) {
+		System.out.println("passou aqui");
+        produtoDAO.remove(id);
+    }
+	
+	//editar
+	@PUT
+    @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    @Produces(MediaType.TEXT_PLAIN)
+    public void merge(Produto produto) {
+        produtoDAO.merge(produto);
+    }
 
 }

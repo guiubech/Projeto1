@@ -6,8 +6,16 @@ import br.com.step.rest.model.Produto;
 
 public interface ProdutoDAO {
 	
-	Produto consultaProduto(Long id);
 	
-	public List<Produto> listaProduto(); 
+	
+	Produto findById(Long id);
+	
+	void merge(Produto produto);
+	
+	void remove(Long id);
+	
+	void persist(Produto produto);
+	
+	public List<Produto> findAll(); 
 
 }
