@@ -16,6 +16,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import br.com.step.rest.dao.ProdutoDAO;
+import br.com.step.rest.model.ConsultaCep;
 import br.com.step.rest.model.Produto;
 
 @Path("/produto")
@@ -64,5 +65,14 @@ public class ProdutoRest {
     public void merge(Produto produto) {
         produtoDAO.merge(produto);
     }
+	
+	
+	//retorna Cep
+		@GET
+		@Produces(MediaType.APPLICATION_JSON + CHARSET_UTF8)
+		public List <ConsultaCep> listaConsultaCep() {
+			return null;
+		}
+	
 
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Login</title>
+</h:head>
+
+<body>
+
+	<h:form>
+		<h:outputText value="#{horaBean.hora}">
+			<f:convertDateTime type="date" dateStyle="full" locale="pt"></f:convertDateTime>
+		</h:outputText>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Login:" />
+			<h:inputText value="#{loginBean.login.name}" size="20" />
+
+			<h:outputLabel value="Password:" />
+			<h:inputSecret value="#{loginBean.login.password}" size="20" />
+
+			<h:commandButton value="Login" action="#{loginBean.efetuarLogin}" />
+		</h:panelGrid>
+		<h:messages />
+	</h:form>
+
+</body>
+
+</html>
